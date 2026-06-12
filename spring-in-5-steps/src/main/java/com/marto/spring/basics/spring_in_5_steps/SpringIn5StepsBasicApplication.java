@@ -1,11 +1,12 @@
 package com.marto.spring.basics.spring_in_5_steps;
 
+import com.marto.spring.basics.spring_in_5_steps.basic.BinarySearchImpl;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 
 @SpringBootApplication
-public class SpringIn5StepsApplication {
+public class SpringIn5StepsBasicApplication {
 
   public static void main(String[] args) {
     // What are the beans?
@@ -15,7 +16,7 @@ public class SpringIn5StepsApplication {
     // BinarySearchImpl binarySearchImpl = new BinarySearchImpl(new QuickSortAlgorithm());
     // Application Context
     ConfigurableApplicationContext applicationContext =
-        SpringApplication.run(SpringIn5StepsApplication.class, args);
+        SpringApplication.run(SpringIn5StepsBasicApplication.class, args);
     BinarySearchImpl binarySearchImplBean = applicationContext.getBean(BinarySearchImpl.class);
     BinarySearchImpl binarySearchImplBean1 = applicationContext.getBean(BinarySearchImpl.class);
     System.out.println(binarySearchImplBean);

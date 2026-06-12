@@ -1,4 +1,4 @@
-package com.marto.spring.basics.spring_in_5_steps;
+package com.marto.spring.basics.spring_in_5_steps.basic;
 
 public interface SortAlgorithm {
   public int[] sort(int[] numbers);
