@@ -1,7 +1,11 @@
 package com.marto.spring.basics.spring_in_5_steps;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component
 public class BinarySearchImpl {
-  private SortAlgorithm sortAlgorithm;
+  @Autowired private SortAlgorithm sortAlgorithm;
 
   public BinarySearchImpl(SortAlgorithm sortAlgorithm) {
     this.sortAlgorithm = sortAlgorithm;
