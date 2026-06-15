@@ -1,5 +1,8 @@
 package com.marto.spring.basics.spring_in_5_steps.basic;
 
+import jakarta.annotation.PostConstruct;
+import jakarta.annotation.PreDestroy;
+import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
@@ -9,6 +12,8 @@ import org.springframework.stereotype.Component;
 @Component
 @Scope(ConfigurableBeanFactory.SCOPE_SINGLETON)
 public class BinarySearchImpl {
+  private Logger logger = org.slf4j.LoggerFactory.getLogger(this.getClass());
+
   @Autowired
   @Qualifier("bubble")
   private SortAlgorithm sortAlgorithm;
@@ -21,5 +26,15 @@ public class BinarySearchImpl {
     // Search the array
     // Return the result
     return 3;
+  }
+
+  @PostConstruct
+  public void postConstruct() {
+    logger.info("postConstruct");
+  }
+
+  @PreDestroy
+  public void preDestroy() {
+    logger.info("preDestroy");
   }
 }
