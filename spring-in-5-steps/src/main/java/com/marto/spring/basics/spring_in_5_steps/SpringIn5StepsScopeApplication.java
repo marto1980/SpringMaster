@@ -15,16 +15,17 @@ public class SpringIn5StepsScopeApplication {
   private static Logger LOGGER = LoggerFactory.getLogger(SpringIn5StepsScopeApplication.class);
 
   public static void main(String[] args) {
-    ConfigurableApplicationContext applicationContext =
-        new AnnotationConfigApplicationContext(SpringIn5StepsScopeApplication.class);
-    PersonDAO personDao = applicationContext.getBean(PersonDAO.class);
-    PersonDAO personDao2 = applicationContext.getBean(PersonDAO.class);
+    try (ConfigurableApplicationContext applicationContext =
+        new AnnotationConfigApplicationContext(SpringIn5StepsScopeApplication.class)) {
 
-    LOGGER.info("{}", personDao);
-    LOGGER.info("{}", personDao.getJdbcConnection());
+      PersonDAO personDao = applicationContext.getBean(PersonDAO.class);
+      PersonDAO personDao2 = applicationContext.getBean(PersonDAO.class);
 
-    LOGGER.info("{}", personDao2);
-    LOGGER.info("{}", personDao2.getJdbcConnection());
-    applicationContext.close();
+      LOGGER.info("{}", personDao);
+      LOGGER.info("{}", personDao.getJdbcConnection());
+
+      LOGGER.info("{}", personDao2);
+      LOGGER.info("{}", personDao2.getJdbcConnection());
+    }
   }
 }

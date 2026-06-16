@@ -15,11 +15,12 @@ public class SpringIn5StepsComponentScanApplication {
   private static Logger LOGGER = LoggerFactory.getLogger(SpringIn5StepsScopeApplication.class);
 
   public static void main(String[] args) {
-    ConfigurableApplicationContext applicationContext =
-        new AnnotationConfigApplicationContext(SpringIn5StepsComponentScanApplication.class);
-    ComponentDAO componentDao = applicationContext.getBean(ComponentDAO.class);
+    try (ConfigurableApplicationContext applicationContext =
+        new AnnotationConfigApplicationContext(SpringIn5StepsComponentScanApplication.class)) {
 
-    LOGGER.info("{}", componentDao);
-    applicationContext.close();
+      ComponentDAO componentDao = applicationContext.getBean(ComponentDAO.class);
+
+      LOGGER.info("{}", componentDao);
+    }
   }
 }

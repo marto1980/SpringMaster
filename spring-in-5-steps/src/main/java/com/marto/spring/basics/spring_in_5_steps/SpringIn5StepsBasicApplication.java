@@ -17,14 +17,15 @@ public class SpringIn5StepsBasicApplication {
 
     // BinarySearchImpl binarySearchImpl = new BinarySearchImpl(new QuickSortAlgorithm());
     // Application Context
-    ConfigurableApplicationContext applicationContext =
-        new AnnotationConfigApplicationContext(SpringIn5StepsBasicApplication.class);
-    BinarySearchImpl binarySearchImplBean = applicationContext.getBean(BinarySearchImpl.class);
-    BinarySearchImpl binarySearchImplBean1 = applicationContext.getBean(BinarySearchImpl.class);
-    System.out.println(binarySearchImplBean);
-    System.out.println(binarySearchImplBean1);
-    int result = binarySearchImplBean.binarySearch(new int[] {12, 4, 6}, 3);
-    System.out.println(result);
-    applicationContext.close();
+    try (ConfigurableApplicationContext applicationContext =
+        new AnnotationConfigApplicationContext(SpringIn5StepsBasicApplication.class)) {
+
+      BinarySearchImpl binarySearchImplBean = applicationContext.getBean(BinarySearchImpl.class);
+      BinarySearchImpl binarySearchImplBean1 = applicationContext.getBean(BinarySearchImpl.class);
+      System.out.println(binarySearchImplBean);
+      System.out.println(binarySearchImplBean1);
+      int result = binarySearchImplBean.binarySearch(new int[] {12, 4, 6}, 3);
+      System.out.println(result);
+    }
   }
 }
