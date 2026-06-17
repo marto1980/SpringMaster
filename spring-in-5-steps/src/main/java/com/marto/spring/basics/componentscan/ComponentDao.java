@@ -1,10 +1,10 @@
 package com.marto.spring.basics.componentscan;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
-@Component
-public class ComponentDAO {
+@Repository
+public class ComponentDao {
 
   private @Autowired ComponentJdbcConnection jdbcConnection;
 

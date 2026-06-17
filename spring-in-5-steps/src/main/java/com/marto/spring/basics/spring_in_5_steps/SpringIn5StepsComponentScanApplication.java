@@ -1,6 +1,6 @@
 package com.marto.spring.basics.spring_in_5_steps;
 
-import com.marto.spring.basics.componentscan.ComponentDAO;
+import com.marto.spring.basics.componentscan.ComponentDao;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -18,7 +18,7 @@ public class SpringIn5StepsComponentScanApplication {
     try (ConfigurableApplicationContext applicationContext =
         new AnnotationConfigApplicationContext(SpringIn5StepsComponentScanApplication.class)) {
 
-      ComponentDAO componentDao = applicationContext.getBean(ComponentDAO.class);
+      ComponentDao componentDao = applicationContext.getBean(ComponentDao.class);
 
       LOGGER.info("{}", componentDao);
     }

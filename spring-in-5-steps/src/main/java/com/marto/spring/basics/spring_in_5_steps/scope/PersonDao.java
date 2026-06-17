@@ -1,10 +1,10 @@
 package com.marto.spring.basics.spring_in_5_steps.scope;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
-@Component
-public class PersonDAO {
+@Repository
+public class PersonDao {
 
   private @Autowired JdbcConnection jdbcConnection;
 

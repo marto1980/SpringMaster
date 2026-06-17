@@ -1,6 +1,6 @@
 package com.marto.spring.basics.spring_in_5_steps;
 
-import com.marto.spring.basics.spring_in_5_steps.scope.PersonDAO;
+import com.marto.spring.basics.spring_in_5_steps.scope.PersonDao;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -18,8 +18,8 @@ public class SpringIn5StepsScopeApplication {
     try (ConfigurableApplicationContext applicationContext =
         new AnnotationConfigApplicationContext(SpringIn5StepsScopeApplication.class)) {
 
-      PersonDAO personDao = applicationContext.getBean(PersonDAO.class);
-      PersonDAO personDao2 = applicationContext.getBean(PersonDAO.class);
+      PersonDao personDao = applicationContext.getBean(PersonDao.class);
+      PersonDao personDao2 = applicationContext.getBean(PersonDao.class);
 
       LOGGER.info("{}", personDao);
       LOGGER.info("{}", personDao.getJdbcConnection());

@@ -9,6 +9,13 @@
   >
 
   <context:component-scan base-package="com.marto.spring.basics" />
+  <bean id="xmlJdbcConnection" class="com.marto.spring.basics.spring_in_5_steps.xml.XmlJdbcConnection">
+    <!-- collaborators and configuration for this bean go here -->
+  </bean>
+
+  <bean id="xmlPersonDao" class="com.marto.spring.basics.spring_in_5_steps.xml.XmlPersonDao">
+    <property name="xmlJdbcConnection" ref="xmlJdbcConnection"/>
+  </bean>
 
   <!-- more bean definitions go here -->
 
