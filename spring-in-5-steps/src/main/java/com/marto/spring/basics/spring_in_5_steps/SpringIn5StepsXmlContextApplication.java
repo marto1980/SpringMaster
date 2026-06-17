@@ -1,9 +1,13 @@
 package com.marto.spring.basics.spring_in_5_steps;
 
 import com.marto.spring.basics.spring_in_5_steps.xml.XmlPersonDao;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class SpringIn5StepsXmlContextApplication {
+
+  private static Logger LOGGER = LoggerFactory.getLogger(SpringIn5StepsXmlContextApplication.class);
 
   public static void main(String[] args) {
     // Application Context
@@ -11,8 +15,7 @@ public class SpringIn5StepsXmlContextApplication {
         new ClassPathXmlApplicationContext("applicationContext.xml")) {
 
       XmlPersonDao xmlPersonDao = applicationContext.getBean(XmlPersonDao.class);
-      System.out.println(xmlPersonDao);
-      System.out.println(xmlPersonDao.getXmlJdbcConnection());
+      LOGGER.info("{} {}", xmlPersonDao, xmlPersonDao.getXmlJdbcConnection());
     }
   }
 }
