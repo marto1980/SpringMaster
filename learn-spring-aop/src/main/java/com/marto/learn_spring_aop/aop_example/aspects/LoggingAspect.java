@@ -15,7 +15,8 @@ import org.springframework.context.annotation.Configuration;
 public class LoggingAspect {
   private Logger logger = LoggerFactory.getLogger(getClass());
 
-  @Before("execution(* com.marto.learn_spring_aop.aop_example.*.*.*(..))") // Pointcut: When to
+  @Before(
+      "com.marto.learn_spring_aop.aop_example.aspects.CommonPointcutConfig.allPackageConfigUsingBean()") // Pointcut: When to
   // intercept?
   public void logMethodCallBeforeExecution(JoinPoint joinPoint) {
     logger.info(
@@ -24,13 +25,15 @@ public class LoggingAspect {
         joinPoint.getArgs()); // Advice: What to execute on interception?
   }
 
-  @After("execution(* com.marto.learn_spring_aop.aop_example.*.*.*(..))") // Pointcut: When?
+  @After(
+      "com.marto.learn_spring_aop.aop_example.aspects.CommonPointcutConfig.businessPackageConfig()") // Pointcut: When?
   public void logMethodCallAfterExecution(JoinPoint joinPoint) {
     logger.info("After Aspect - {} has executed", joinPoint); // Advice: What?
   }
 
   @AfterThrowing(
-      pointcut = "execution(* com.marto.learn_spring_aop.aop_example.*.*.*(..))",
+      pointcut =
+          "com.marto.learn_spring_aop.aop_example.aspects.CommonPointcutConfig.businessAndDataPackageConfig()",
       throwing = "exception") // Pointcut: When?
   public void logMethodCallAfterException(JoinPoint joinPoint, Exception exception) {
     logger.info(
@@ -40,7 +43,8 @@ public class LoggingAspect {
   }
 
   @AfterReturning(
-      pointcut = "execution(* com.marto.learn_spring_aop.aop_example.*.*.*(..))",
+      pointcut =
+          "com.marto.learn_spring_aop.aop_example.aspects.CommonPointcutConfig.dataPackageConfig()",
       returning = "resultValue") // Pointcut: When?
   public void logMethodCallAfterSuccessfulExecution(JoinPoint joinPoint, Object resultValue) {
     logger.info(
