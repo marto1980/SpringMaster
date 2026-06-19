@@ -1,7 +1,9 @@
 package com.marto.learn_spring_aop.aop_example.aspects;
 
+import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
 
+@Aspect
 public class CommonPointcutConfig {
 
   @Pointcut("execution(* com.marto.learn_spring_aop.aop_example.*.*.*(..))")
@@ -15,4 +17,7 @@ public class CommonPointcutConfig {
 
   @Pointcut("bean(*Service*)")
   public void allPackageConfigUsingBean() {}
+
+  @Pointcut("@annotation(com.marto.learn_spring_aop.aop_example.annotations.TrackTime)")
+  public void trackTimeAnnotation() {}
 }

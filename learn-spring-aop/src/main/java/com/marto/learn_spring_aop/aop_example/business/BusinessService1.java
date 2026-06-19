@@ -1,5 +1,6 @@
 package com.marto.learn_spring_aop.aop_example.business;
 
+import com.marto.learn_spring_aop.aop_example.annotations.TrackTime;
 import com.marto.learn_spring_aop.aop_example.data.DataService1;
 import java.util.Arrays;
 import java.util.OptionalInt;
@@ -13,6 +14,7 @@ public class BusinessService1 {
     this.dataService1 = dataService1;
   }
 
+  @TrackTime
   public OptionalInt calculateMax() {
     int[] data = dataService1.retrieveData();
 

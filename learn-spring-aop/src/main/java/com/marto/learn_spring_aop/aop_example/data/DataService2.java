@@ -1,9 +1,11 @@
 package com.marto.learn_spring_aop.aop_example.data;
 
+import com.marto.learn_spring_aop.aop_example.annotations.TrackTime;
 import org.springframework.stereotype.Repository;
 
 @Repository
 public class DataService2 {
+  @TrackTime
   public int[] retrieveData() {
     try {
       Thread.sleep(30);

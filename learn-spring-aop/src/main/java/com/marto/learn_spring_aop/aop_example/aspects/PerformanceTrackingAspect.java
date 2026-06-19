@@ -14,7 +14,7 @@ public class PerformanceTrackingAspect {
   private Logger logger = LoggerFactory.getLogger(getClass());
 
   @Around(
-      "com.marto.learn_spring_aop.aop_example.aspects.CommonPointcutConfig.businessAndDataPackageConfig()")
+      "com.marto.learn_spring_aop.aop_example.aspects.CommonPointcutConfig.trackTimeAnnotation()")
   public Object findExecutionTime(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
     long startTimeMillis = System.currentTimeMillis();
 
