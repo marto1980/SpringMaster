@@ -12,8 +12,11 @@ import org.springframework.context.annotation.Configuration;
 public class LoggingAspect {
   private Logger logger = LoggerFactory.getLogger(getClass());
 
-  @Before("execution(* com.marto.learn_spring_aop.aop_example.*.*.*(..))")
+  @Before("execution(* com.marto.learn_spring_aop.aop_example.*.*.*(..))") // Pointcut: When?
   public void logMethodCall(JoinPoint joinPoint) {
-    logger.info("Before Aspect - Method is called - {}", joinPoint);
+    logger.info(
+        "Before Aspect - {}  is called with arguments: {}",
+        joinPoint,
+        joinPoint.getArgs()); // Advice: What?
   }
 }
