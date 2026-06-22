@@ -9,3 +9,6 @@
   Welcome ${name}
 </body>
 </html>
+
+<!-- Valid User -> welcome.jsp -->
+<!-- Invalid User -> login.jsp -->
