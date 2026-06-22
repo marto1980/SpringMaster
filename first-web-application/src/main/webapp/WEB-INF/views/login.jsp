@@ -12,6 +12,6 @@ Date date = new Date();
 %>
 <div>Current date is <%=date%></div>
 <body>
-  My First JSP ${name}
+  My name is ${name} and password is ${password}
 </body>
 </html>
