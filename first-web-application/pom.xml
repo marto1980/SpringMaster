@@ -46,6 +46,7 @@
                     <webApp>
                         <contextPath>/</contextPath>
                     </webApp>
+                    <scan>2</scan>
                 </configuration>
             </plugin>
         </plugins>
