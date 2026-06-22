@@ -7,11 +7,13 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(urlPatterns = "/login.do")
+@WebServlet(urlPatterns = {"/login.do", "/"})
 public class LoginServlet extends HttpServlet {
 
-  protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+  protected void doGet(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
-    req.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(req, resp);
+    String name = request.getParameter("name");
+    request.setAttribute("name", name);
+    request.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(request, response);
   }
 }
