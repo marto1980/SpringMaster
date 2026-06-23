@@ -1,4 +1,4 @@
-package webapp;
+package com.marto.jee;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
