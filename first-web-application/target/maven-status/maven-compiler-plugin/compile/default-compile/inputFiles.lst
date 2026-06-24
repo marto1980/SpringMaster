@@ -1,4 +1,3 @@
-/home/marto/repos/udemy/SpringMaster/first-web-application/src/main/java/com/marto/jee/LoginServlet.java
-/home/marto/repos/udemy/SpringMaster/first-web-application/src/main/java/com/marto/jee/UserValidationService.java
-/home/marto/repos/udemy/SpringMaster/first-web-application/src/main/java/com/marto/springmvc/LoginController.java
+/home/marto/repos/udemy/SpringMaster/first-web-application/src/main/java/com/marto/login/LoginController.java
+/home/marto/repos/udemy/SpringMaster/first-web-application/src/main/java/com/marto/login/LoginService.java
 /home/marto/repos/udemy/SpringMaster/first-web-application/src/main/java/webapp/UserValidationService.java

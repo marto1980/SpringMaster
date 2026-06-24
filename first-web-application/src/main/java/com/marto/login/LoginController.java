@@ -1,4 +1,4 @@
-package com.marto.springmvc;
+package com.marto.login;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class LoginController {
+  private LoginService service = new LoginService();
+
   @RequestMapping(value = "/login", method = RequestMethod.GET)
   public String showLoginPage() {
     return "login";
@@ -18,8 +20,12 @@ public class LoginController {
       @RequestParam("name") String name,
       ModelMap model,
       @RequestParam("password") String password) {
-    model.put("name", name);
-    model.put("password", password);
-    return "welcome";
+    if (service.validateUser(name, password)) {
+      model.put("name", name);
+      model.put("password", password);
+      return "welcome";
+    }
+    model.put("errorMessage", "Invalid Credentials");
+    return "login";
   }
 }
