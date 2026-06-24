@@ -1,0 +1,11 @@
+<configuration>
+    <appender name="Appender1" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%-7level %d [%thread] %logger %X - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <root level="TRACE">
+        <appender-ref ref="Appender1" />
+    </root>
+</configuration>
